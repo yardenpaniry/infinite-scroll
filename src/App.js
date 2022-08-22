@@ -7,7 +7,6 @@ import './App.css';
 
 const App = () =>{
   
-
   return (
     <Router>
       <div className="App">
