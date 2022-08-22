@@ -10,10 +10,10 @@ const App = () =>{
   return (
     <Router>
       <div className="App">
-        <Routes>
+        {/* <Routes>
           <Route exact path="/imageDetails/:id" element={<ImageDetails/>}/>
           <Route  path="/infinite-scroll" element={<MainPage/>}/>
-        </Routes>
+        </Routes> */}check
       </div>
     </Router>
 
