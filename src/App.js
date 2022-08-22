@@ -12,7 +12,7 @@ const App = () =>{
       <div className="App">
         <Routes>
           <Route exact path="/imageDetails/:id" element={<ImageDetails/>}/>
-          <Route  path="/infinite-scroll" element={<MainPage/>}/>
+          <Route  path="/" element={<MainPage/>}/>
         </Routes>
       </div>
     </Router>
