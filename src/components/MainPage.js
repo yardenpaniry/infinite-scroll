@@ -24,15 +24,15 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1 className="title">React Photo Search</h1>
-                <SearchPhotos />
+        <h1 className="title">Photo Search</h1>
+        <SearchPhotos />
 
         <InfinitScroll
           dataLength={images.length}
           next={fetchImages}
           hasMore={true}
         >
-            <Gallery images={images} />
+          <Gallery images={images} />
 
 
 
