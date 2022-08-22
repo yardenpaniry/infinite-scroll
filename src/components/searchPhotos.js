@@ -28,10 +28,10 @@ export default function SearchPhotos() {
     return (
         <>
             <form className="form" onSubmit={searchPhotos}>
-                <label className="label" htmlFor="query">
+                {/* <label className="label" htmlFor="query">
                     {" "}
                     📷
-                </label>
+                </label> */}
                 <input
                     type="text"
                     name="query"

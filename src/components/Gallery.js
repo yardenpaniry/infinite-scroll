@@ -1,8 +1,31 @@
-import React from 'react'
-import { useHistory} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
-export const Gallery = ({ images}) => {
+export const Gallery = ({ images }) => {
+
+  const navigate = useNavigate();
+
+  const [SelectedImg, setSelectedImg] = useState([]); /* image clicked by the user */
+
+  
+  const handleClick = (event, image) => {
+
+    setSelectedImg(image);
+        // console.log(SelectedImg);
+        if(SelectedImg.length !== 0){
+
+          let SelectedImgStr = JSON.stringify(SelectedImg);
+          
+          // console.log(SelectedImgStr);
+          navigate(`/imageDetails/${SelectedImg.id}`, {
+            state: {SelectedImgStr:SelectedImgStr}});
+        }
+
+  };
+ 
+
+
   return (
 
     <div className="card-list">
@@ -15,6 +38,8 @@ export const Gallery = ({ images}) => {
               src={image.urls.full}
               width="50%"
               height="50%"
+              onClick={(event) => handleClick(event, image)}
+
             ></img>
           </div>)
       }

@@ -1,0 +1,42 @@
+button.btn {
+
+  display: inline-block;
+  padding: .75rem 1.25rem;
+  border-radius: 10rem;
+  color: rgb(0, 0, 0);
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: .15rem;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+}
+img.SelectedImg {
+  /* height: 50%;
+  width: 50%; */
+}
+.details {
+  display: grid;
+  /* justify-content: space-between; */
+  grid-template-columns: 60% 40%;
+  width: 80%;
+}
+
+.shareOrDownload {
+  display: grid;
+  align-content: space-between;
+  /* grid-template-rows: 40% 40%; */
+  gap: 2%;
+}
+
+
+.detailsPage {
+  display: grid;
+  gap: 1%;
+}
+
+.infoImg {
+  font-family: cursive;
+}

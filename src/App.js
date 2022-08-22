@@ -12,8 +12,8 @@ const App = () =>{
     <Router>
       <div className="App">
         <Routes>
-          <Route exact path="/imageDetails/:id" component={ImageDetails} /> 
-          <Route  path="/infinite-scroll" component={MainPage}/>
+          <Route exact path="/imageDetails/:id" element={<ImageDetails/>}/>
+          <Route  path="/infinite-scroll" element={<MainPage/>}/>
         </Routes>
       </div>
     </Router>
