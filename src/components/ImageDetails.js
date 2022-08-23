@@ -10,7 +10,8 @@ const ImageDetails = ({ route, navigation }) => {
 
   const navigate = useNavigate();
   const location = useLocation();
-
+  window.scrollTo(0, 0)
+ 
   const SelectedImgStr = location.state.SelectedImgStr;
   const SelectedImgObj = JSON.parse(SelectedImgStr);
 
@@ -19,11 +20,11 @@ const ImageDetails = ({ route, navigation }) => {
   const shareHandle = () => {
     if (typeof navigator.share === 'function') {
       navigator.share({
-        text: 'I would like to share a picture with you',  
-        url: SelectedImgObj.urls.full,   
+        text: 'I would like to share a picture with you',
+        url: SelectedImgObj.urls.full,
       })
     }
-    else{
+    else {
       navigator.clipboard.writeText(SelectedImgObj.urls.full)
     }
   }
@@ -33,6 +34,18 @@ const ImageDetails = ({ route, navigation }) => {
       "img"
     );
   }
+  const backButton = () => {
+    console.log("scrollPosition:" +location.state.pagePosition)
+
+    navigate(`/infinite-scroll`, {
+      state: { pagePosition:location.state.pagePosition  , images: location.state.images }
+    });
+   
+    // navigate(`/infinite-scroll`, {
+    //   state: { pagePosition: 5 }
+    // });
+
+  }
 
   return (
     <div className="detailsPage">
@@ -40,13 +53,12 @@ const ImageDetails = ({ route, navigation }) => {
         <button
           type="button"
           className="btn backButton"
-          onClick={() => navigate(-1)}>&#8249; Back</button>
+          onClick={backButton}>&#8249; Back</button>
 
       </div>
 
       <div className="imgView">
-        <img className="SelectedImg" key={SelectedImgObj.key} src="https://www.w3schools.com/html/img_girl.jpg" />
-        {/* //SelectedImg.urls.full  */}
+        <img className="SelectedImg" key={SelectedImgObj.key} src={SelectedImgObj.urls.full} />
       </div>
 
       <div className="details">

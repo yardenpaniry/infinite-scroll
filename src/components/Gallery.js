@@ -5,25 +5,28 @@ import { useNavigate } from 'react-router-dom';
 export const Gallery = ({ images }) => {
 
   const navigate = useNavigate();
+  const [pagePosition, setPagePosition] = useState(0);
 
   const [SelectedImg, setSelectedImg] = useState([]); /* image clicked by the user */
 
-  
+
   const handleClick = (event, image) => {
 
     setSelectedImg(image);
-        // console.log(SelectedImg);
-        if(SelectedImg.length !== 0){
+    setPagePosition(window.pageYOffset)
 
-          let SelectedImgStr = JSON.stringify(SelectedImg);
-          
-          // console.log(SelectedImgStr);
-          navigate(`/imageDetails/${SelectedImg.id}`, {
-            state: {SelectedImgStr:SelectedImgStr}});
-        }
+    if (SelectedImg.length !== 0) {
+
+      let SelectedImgStr = JSON.stringify(SelectedImg);
+
+      // console.log(SelectedImgStr);
+      navigate(`/imageDetails/${SelectedImg.id}`, {
+        state: { SelectedImgStr: SelectedImgStr, images: images , pagePosition: pagePosition }
+      });
+    }
 
   };
- 
+
 
 
   return (
