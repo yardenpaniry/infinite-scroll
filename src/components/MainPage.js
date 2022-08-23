@@ -7,6 +7,8 @@ import InfinitScroll from 'react-infinite-scroll-component'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 
 const MainPage = () => {
@@ -17,19 +19,28 @@ const MainPage = () => {
   const [images, setImages] = useState([]);
   const [searchWords, setSearchWords] = useState("");
   const [pageNumber, setPageNumber] = useState(1);
-  const [scrollPosition, setScrollPosition] = useState();
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   const location = useLocation();
+  const navigate = useNavigate();
 
-
+  window.onbeforeunload = (e) => {
+    navigate(location.pathname, {}); 
+  };
   useEffect(() => {
+    let position = 0;
     if (location.state != undefined || location.state != null) {
-      let position = location.state.pagePosition
+      position = location.state.pagePosition
       setImages([...location.state.images])
       setScrollPosition(position)
 
-      console.log("location.state.pagePosition: " + location.state.pagePosition)
+      if (position > 0) {
+        console.log("טשרגקמ: " + position)
 
+        window.scrollTo(0, position);
+  
+        position = 0;
+      }
     }
     else
       fetchImages();

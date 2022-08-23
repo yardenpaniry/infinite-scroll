@@ -4,6 +4,8 @@
   color: #333;
   font-size: 10px;
 }
+html, body { height: 100%; overflow:auto; }
+
 .App {
   margin: 0;
   padding: 0;
