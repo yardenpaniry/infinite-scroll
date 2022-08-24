@@ -1,4 +1,4 @@
-import React from 'react'
+import React , { useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import './ImageDetails.css'
@@ -11,9 +11,12 @@ const ImageDetails = ({ route, navigation }) => {
   const navigate = useNavigate();
   const location = useLocation();
   window.scrollTo(0, 0)
- 
+
   const SelectedImgStr = location.state.SelectedImgStr;
   const SelectedImgObj = JSON.parse(SelectedImgStr);
+
+  const [descriptionImage, setDescriptionImage] = useState("");
+
 
   console.log(SelectedImgObj)
 
@@ -35,16 +38,22 @@ const ImageDetails = ({ route, navigation }) => {
     );
   }
   const backButton = () => {
-    console.log("image scrollPosition: " +location.state.pagePosition)
+    console.log("image scrollPosition: " + location.state.pagePosition)
 
     navigate(`/infinite-scroll`, {
-      state: { pagePosition:location.state.pagePosition  , images: location.state.images }
+      state: { pagePosition: location.state.pagePosition, images: location.state.images }
     });
-   
+
 
 
   }
-
+  useEffect(() => {
+    if (SelectedImgObj.description == null) {
+      setDescriptionImage("Sorry, we don't have a description for the photo")
+    }
+    else  
+    setDescriptionImage(SelectedImgObj.description)
+  })
   return (
     <div className="detailsPage">
       <div className="backBtnDiv">
@@ -61,7 +70,7 @@ const ImageDetails = ({ route, navigation }) => {
 
       <div className="details">
         <div className="infoImg">
-          <h5>Description: {SelectedImgObj.description}</h5>
+          <h5>Description: {descriptionImage}</h5>
 
         </div>
         <div className="shareOrDownload">

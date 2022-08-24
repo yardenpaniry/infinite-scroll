@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export const Gallery = ({ images }) => {
 
   const navigate = useNavigate();
-  const [pagePosition, setPagePosition] = useState(0);
+  // const [pagePosition, setPagePosition] = useState(0);
 
   const [SelectedImg, setSelectedImg] = useState([]); 
 
@@ -13,14 +13,14 @@ export const Gallery = ({ images }) => {
   const handleClick = (event, image) => {
 
     setSelectedImg(image);
-    setPagePosition(window.pageYOffset)
+    // setPagePosition(window.pageYOffset)
 
-    if (SelectedImg.length !== 0) {
+    if (image.length !== 0) {
 
-      let SelectedImgStr = JSON.stringify(SelectedImg);
+      let SelectedImgStr = JSON.stringify(image);
 
-      navigate(`/imageDetails/${SelectedImg.id}`, {
-        state: { SelectedImgStr: SelectedImgStr, images: images , pagePosition: pagePosition }
+      navigate(`/imageDetails/${image.id}`, {
+        state: { SelectedImgStr: SelectedImgStr, images: images , pagePosition: window.pageYOffset }
       });
     }
   };

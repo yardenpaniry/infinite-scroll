@@ -15,6 +15,11 @@ const App = () =>{
           <Route  path="/infinite-scroll" element={<MainPage/>}/>
         </Routes>
       </div>
+      <footer>
+
+      ©️ Yarden paniry
+      </footer>
+
     </Router>
 
   );

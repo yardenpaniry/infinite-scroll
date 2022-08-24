@@ -12,9 +12,7 @@ html {
 
 
 }
-div#root {
-  overflow: scroll;
-}
+
 
 .App {
   margin: 0;
@@ -108,4 +106,15 @@ div#root {
   padding-bottom: 1%;
   left: 0;
   text-align: -webkit-center;
+}
+footer {
+  background-color: black;
+  height: 100px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  color: white;
+  text-align: center;
+  padding: 40px;
+  font-size: 20px;
 }

@@ -22,7 +22,7 @@ const MainPage = () => {
   const [searchWords, setSearchWords] = useState("");
   const [pageNumber, setPageNumber] = useState(1);
 
-  const scroll    = Scroll.animateScroll;
+  const scroll = Scroll.animateScroll;
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ const MainPage = () => {
 
 
   useEffect(() => {
-  
+
     setHeight(ref.current.clientHeight)
     let position = 0;
     if (location.state != undefined || location.state != null) {
@@ -108,7 +108,7 @@ const MainPage = () => {
   }
 
   return (
-    <div className="AppPage"  id="AppPage">
+    <div className="AppPage" id="AppPage">
       <div className="container">
         <div className="header" ref={ref}>
           <h1 className="title">Photo Search</h1>
