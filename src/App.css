@@ -4,17 +4,24 @@
   color: #333;
   font-size: 10px;
 }
-html, body { height: 100%; overflow:auto; }
+
+html,
+body {
+  /* height: 100%; */
+  overflow: auto;
+}
 
 .App {
   margin: 0;
   padding: 0;
 }
+
 .container {
   margin: 0 auto;
   max-width: 1000px;
   padding: 40px;
 }
+
 .title {
   font-size: 4.4rem;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -22,7 +29,9 @@ html, body { height: 100%; overflow:auto; }
 
 .form {
   display: grid;
+  width: 70%;
 }
+
 .label {
   font-size: 3rem;
   margin-bottom: 1rem;
@@ -51,9 +60,11 @@ html, body { height: 100%; overflow:auto; }
 .button:hover {
   background-color: rgba(0, 0, 0, 0.85);
 }
+
 .card-list {
   column-count: 3;
 }
+
 .card {
   margin-bottom: 1rem;
   display: flex;
@@ -64,19 +75,30 @@ html, body { height: 100%; overflow:auto; }
   margin-top: 1rem;
   border-radius: 10px;
 }
+
 @media (min-width: 768px) {
   .form {
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: 1fr auto;
     grid-gap: 1rem;
     align-items: center;
+    
   }
+
   .input {
     margin-bottom: 0;
   }
 }
 
 @media only screen and (max-width: 600px) {
-    .card-list {
-        column-count: 2;
-    }
+  .card-list {
+    column-count: 2;
+  }
 }
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  opacity: 90%;
+  padding-bottom: 1%;
+}
+.sticky{}
