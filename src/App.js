@@ -11,7 +11,7 @@ const App = () =>{
     <Router>
       <div className="App">
         <Routes>
-          <Route exact path="/imageDetails/:id" element={<ImageDetails/>}/>
+          <Route exact path="/imageDetails/id=:d" element={<ImageDetails/>}/>
           <Route  path="/infinite-scroll" element={<MainPage/>}/>
         </Routes>
       </div>

@@ -11,6 +11,7 @@ button.btn {
   position: relative;
   overflow: hidden;
   z-index: 1;
+  border-color: black;
 
 }
 
@@ -48,6 +49,18 @@ img.SelectedImg {
   .imgView {
     height: 50%;
     width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .details {
+    display: flex;
+    /* justify-content: space-between; */
+    grid-template-columns: 60% 40%;
+    width: 80%;
+    flex-direction: column;
+    align-self: center;
   }
 }
 

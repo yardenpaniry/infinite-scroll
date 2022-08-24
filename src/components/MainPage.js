@@ -73,7 +73,6 @@ const MainPage = () => {
     }
     else {
       let url = `${urlRoot}/photos/random?client_id=${accessKey}&count=10`
-      console.log(url)
 
       axios.get(`${urlRoot}/photos/random?client_id=${accessKey}&count=10`)
         .then(response => setImages([...images, ...response.data]))
@@ -81,7 +80,6 @@ const MainPage = () => {
   }
   const onSearchSubmit = (input) => {
 
-    console.log(`${urlRoot}/search/photos?query=${input}&per_page=10&client_id=${accessKey}`)
     if (input !== "") {
       let url = `${urlRoot}/search/photos?query=${input}&per_page=10&client_id=${accessKey}`
 

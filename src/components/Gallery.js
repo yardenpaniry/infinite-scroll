@@ -19,7 +19,7 @@ export const Gallery = ({ images }) => {
 
       let SelectedImgStr = JSON.stringify(image);
 
-      navigate(`/imageDetails/${image.id}`, {
+      navigate(`/imageDetails/id=${image.id}`, {
         state: { SelectedImgStr: SelectedImgStr, images: images , pagePosition: window.pageYOffset }
       });
     }
