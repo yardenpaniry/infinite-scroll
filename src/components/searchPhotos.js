@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import Unsplash, { toJson } from "unsplash-js";
-import { Gallery } from "./Gallery"
+
 
 export default function SearchPhotos({userSubmit}) {
     const [query, setQuery] = useState("");
-    const [images, setImages] = useState([]);
-    console.log(query);
 
     const searchPhotos = async (e) => {
         e.preventDefault();

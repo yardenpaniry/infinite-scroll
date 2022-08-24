@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -7,7 +7,7 @@ export const Gallery = ({ images }) => {
   const navigate = useNavigate();
   const [pagePosition, setPagePosition] = useState(0);
 
-  const [SelectedImg, setSelectedImg] = useState([]); /* image clicked by the user */
+  const [SelectedImg, setSelectedImg] = useState([]); 
 
 
   const handleClick = (event, image) => {
@@ -19,15 +19,11 @@ export const Gallery = ({ images }) => {
 
       let SelectedImgStr = JSON.stringify(SelectedImg);
 
-      // console.log(SelectedImgStr);
       navigate(`/imageDetails/${SelectedImg.id}`, {
         state: { SelectedImgStr: SelectedImgStr, images: images , pagePosition: pagePosition }
       });
     }
-
   };
-
-
 
   return (
 
@@ -48,14 +44,5 @@ export const Gallery = ({ images }) => {
       }
     </div>
 
-    // <div>
-
-    //         {images.map(images =>
-    //            <img src={images.urls.full} key={images.key} alt="" />
-    //         )}
-
-
-    //       </div> 
-    // <img src={url} key={key} alt="" />
   )
 }

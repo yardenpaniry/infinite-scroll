@@ -56,7 +56,7 @@ const ImageDetails = ({ route, navigation }) => {
       </div>
 
       <div className="imgView">
-        <img className="SelectedImg" key={SelectedImgObj.key} src={SelectedImgObj.urls.full} />
+        <img className="SelectedImg" key={SelectedImgObj.key} src={SelectedImgObj.urls.full} alt="description" />
       </div>
 
       <div className="details">

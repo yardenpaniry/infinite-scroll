@@ -10,13 +10,8 @@ import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useRef } from "react";
 import * as Scroll from 'react-scroll';
-import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
-
-
-
 
 const MainPage = () => {
-  const inputRef = useRef();
   const urlRoot = "https://api.unsplash.com";
   const accessKey = process.env.REACT_APP_ACCESSKEY;
 
@@ -26,8 +21,7 @@ const MainPage = () => {
   const [images, setImages] = useState([]);
   const [searchWords, setSearchWords] = useState("");
   const [pageNumber, setPageNumber] = useState(1);
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [offset, setOffset] = useState(0);
+
   const scroll    = Scroll.animateScroll;
 
   const location = useLocation();
@@ -37,15 +31,6 @@ const MainPage = () => {
     navigate(location.pathname, {});
   };
 
-  function scrollFunction() {
-    var content = document.getElementById("content");
-
-    const { offsetTop } = inputRef.current;
-    console.log("offsetTop" + inputRef.current.innerHTML)
-
-    setOffset(offsetTop)
-    console.log("setOffset" + offset)
-  }
 
 
   useEffect(() => {
@@ -55,7 +40,6 @@ const MainPage = () => {
     if (location.state != undefined || location.state != null) {
       position = location.state.pagePosition
       setImages([...location.state.images])
-      setScrollPosition(position)
 
       if (position > 0) {
         console.log("positionTo: " + position)
