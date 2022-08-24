@@ -38,7 +38,7 @@ export const Gallery = ({ images }) => {
             <img
               className="card--image"
               alt={image.alt_description}
-              src={image.urls.full}
+              src={image.urls.thumb}
               width="50%"
               height="50%"
               onClick={(event) => handleClick(event, image)}
