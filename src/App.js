@@ -8,15 +8,15 @@ import './App.css';
 const App = () =>{
   
   return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route exact path="/imageDetails/:id" element={<ImageDetails/>}/>
-          <Route  path="/" element={<MainPage/>}/>
-        </Routes>
-      </div>
-    </Router>
-
+    // <Router>
+    //   <div className="App">
+    //     <Routes>
+    //       <Route exact path="/imageDetails/:id" element={<ImageDetails/>}/>
+    //       <Route  path="/infinite-scroll" element={<MainPage/>}/>
+    //     </Routes>
+    //   </div>
+    // </Router>
+<div className="App">yarden</div>
   );
   
 }
