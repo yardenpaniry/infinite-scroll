@@ -15,7 +15,7 @@ import { useRef } from "react";
 
 const MainPage = () => {
   const inputRef = useRef();
-  const urlRoot = "http://api.unsplash.com";
+  const urlRoot = "https://api.unsplash.com";
   const accessKey = process.env.REACT_APP_ACCESSKEY;
 
   const [height, setHeight] = useState(0)
@@ -38,41 +38,14 @@ const MainPage = () => {
     var content = document.getElementById("content");
 
     const { offsetTop } = inputRef.current;
-    // document.content.style.marginTop = 99;
-    console.log("offsetTop" +  inputRef.current.innerHTML)
+    console.log("offsetTop" + inputRef.current.innerHTML)
 
     setOffset(offsetTop)
     console.log("setOffset" + offset)
-
-
-    // if (window.pageYOffset > offsetTop) {
-    //   document.getElementById("content").style.color = "red";//setAttribute("style", "margin-top: " + offsetTop + "px");
-
-    // } else {
-    //   document.getElementById("content").style.color = "red";//setAttribute("style", "margin-top: " + offsetTop + "px");
-    // }
   }
 
 
   useEffect(() => {
-    // var content = document.getElementById("content");
-    // console.log(content);
-    // document.content.setAttribute("style", "margin-top: 88px");
-
-    // window.onscroll = function () {
-    //   scrollFunction()
-    //   console.log("check");
-
-    // };
-
-    // var content = document.getElementById("content");
-
-    // const { offsetTop } = inputRef.current;
-    // // document.content.style.marginTop = 99;
-    // console.log("offsetTop" +  inputRef.current.innerHTML)
-
-    // setOffset(offsetTop)
-    // console.log("setOffset" + offset)
 
     setHeight(ref.current.clientHeight)
 
@@ -96,31 +69,12 @@ const MainPage = () => {
       fetchImages();
   }, []);
 
-  useEffect(() => {
-    // const onScroll = () => setOffset(window.pageYOffset);
-    // // clean up code
-    // window.removeEventListener('scroll', onScroll);
-    // window.addEventListener('scroll', onScroll, { passive: true });
-    // return () => window.removeEventListener('scroll', onScroll);
 
-    // console.log(offset);
-
-    // if (scrollPosition > 0) {
-
-    //   console.log("טשרגקמ: " + scrollPosition)
-
-    //   window.scrollTo(0, scrollPosition);
-
-    //   setScrollPosition(0);
-
-    // }
-  }, []);
 
   const fetchImages = () => {
     if (searchWords != "") {
       console.log("searchWords: " + searchWords)
-      // axios.get(`${urlRoot}/search/photos?query=${searchWords}&per_page=20&client_id=${accessKey}`)
-      //   .then(response => setImages([...images, ...response.data]))
+
       let url = `${urlRoot}/search/photos?query=${searchWords}&page=${pageNumber}&per_page=10&client_id=${accessKey}`
 
       fetch(url).then(res => res.json())
@@ -137,8 +91,6 @@ const MainPage = () => {
       let url = `${urlRoot}/photos/random?client_id=${accessKey}&count=10`
       console.log(url)
 
-      // fetch(url).then(res => res.json())
-      // .then(response => setImages([...images, ...response.data]))
       axios.get(`${urlRoot}/photos/random?client_id=${accessKey}&count=10`)
         .then(response => setImages([...images, ...response.data]))
     }
