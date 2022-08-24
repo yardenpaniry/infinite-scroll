@@ -5,21 +5,27 @@
   font-size: 10px;
 }
 
-html,
-body {
-  /* height: 100%; */
-  overflow: auto;
+
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+
+
+}
+div#root {
+  overflow: scroll;
 }
 
 .App {
   margin: 0;
-  padding: 0;
+  padding: 10px;
+  /* overflow: scroll */
 }
 
 .container {
   margin: 0 auto;
   max-width: 1000px;
-  padding: 40px;
+  /* padding: 40px; */
 }
 
 .title {
@@ -101,4 +107,3 @@ body {
   opacity: 90%;
   padding-bottom: 1%;
 }
-.sticky{}

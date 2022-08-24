@@ -35,15 +35,13 @@ const ImageDetails = ({ route, navigation }) => {
     );
   }
   const backButton = () => {
-    console.log("scrollPosition:" +location.state.pagePosition)
+    console.log("image scrollPosition: " +location.state.pagePosition)
 
     navigate(`/infinite-scroll`, {
       state: { pagePosition:location.state.pagePosition  , images: location.state.images }
     });
    
-    // navigate(`/infinite-scroll`, {
-    //   state: { pagePosition: 5 }
-    // });
+
 
   }
 

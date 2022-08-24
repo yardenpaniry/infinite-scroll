@@ -9,6 +9,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useRef } from "react";
+import * as Scroll from 'react-scroll';
+import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 
 
@@ -26,6 +28,7 @@ const MainPage = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [offset, setOffset] = useState(0);
+  const scroll    = Scroll.animateScroll;
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -46,11 +49,8 @@ const MainPage = () => {
 
 
   useEffect(() => {
-
+  
     setHeight(ref.current.clientHeight)
-
-
-
     let position = 0;
     if (location.state != undefined || location.state != null) {
       position = location.state.pagePosition
@@ -58,9 +58,9 @@ const MainPage = () => {
       setScrollPosition(position)
 
       if (position > 0) {
-        console.log("position: " + position)
+        console.log("positionTo: " + position)
 
-        window.scrollTo(0, position);
+        scroll.scrollTo(position);
 
         position = 0;
       }
@@ -123,18 +123,16 @@ const MainPage = () => {
     }
   }
 
-  const divStyle = {
-    marginTop: height
-  }
-
   return (
-    <div className="App" >
+    <div className="AppPage"  id="AppPage">
       <div className="container">
         <div className="header" ref={ref}>
           <h1 className="title">Photo Search</h1>
           <SearchPhotos userSubmit={onSearchSubmit} />
         </div>
-        <div id="content" style={divStyle}>
+        <div id="content" style={{
+          marginTop: height
+        }}>
 
 
           <InfinitScroll
