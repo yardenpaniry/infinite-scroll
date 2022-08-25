@@ -70,7 +70,8 @@ const ImageDetails = ({ route, navigation }) => {
 
       <div className="details">
         <div className="infoImg">
-          <h5>Description: {descriptionImage}</h5>
+          <h5 className="descriptionTitle">Description:</h5>
+          <h5 className="description">{descriptionImage}</h5>
 
         </div>
         <div className="shareOrDownload">

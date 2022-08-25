@@ -111,7 +111,8 @@ html {
   visibility: visible;
 }
 footer {
-  bottom: 0;
+  /* bottom: 0; */
+  /* position: inherit; */
   background-color: black;
   height: 100px;
   width: 100%;
