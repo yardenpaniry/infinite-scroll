@@ -73,10 +73,10 @@ const MainPage = () => {
       let url = `${urlRoot}/photos/random?&client_id=${accessKey}&count=30`
 
       fetch(url).then(res => res.json())
-      .then(data => {
+        .then(data => {
           setImages([...images, ...data]);
-      })
-  
+        })
+
     }
   }
 
@@ -85,25 +85,28 @@ const MainPage = () => {
 
     if (input !== "") {
       let url = `${urlRoot}/search/photos?query=${input}&per_page=30&client_id=${accessKey}`
+      if (input == searchWords){
+        url = `${urlRoot}/search/photos?query=${input}&per_page=30&client_id=${accessKey}&page=${pageNumber}`
+      }
 
-      fetch(url).then(res => res.json())
-        .then(data => {
+        fetch(url).then(res => res.json())
+          .then(data => {
 
-          if (data.total_pages == 0) {
-            toast.error("No images found related to '" + input + "'", {
-              position: toast.POSITION.TOP_CENTER
-            })
+            if (data.total_pages == 0) {
+              toast.error("No images found related to '" + input + "'", {
+                position: toast.POSITION.TOP_CENTER
+              })
 
-          }
-          else {
-            setSearchWords(input)
-            setImages([...data.results]);
-            if (pageNumber < data.total_pages) {
-              setPageNumber(pageNumber + 1);
             }
-          }
+            else {
+              setSearchWords(input)
+              setImages([...data.results]);
+              if (pageNumber < data.total_pages) {
+                setPageNumber(pageNumber + 1);
+              }
+            }
 
-        })
+          })
     }
   }
 
