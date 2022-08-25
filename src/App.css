@@ -106,6 +106,9 @@ html {
   padding-bottom: 1%;
   left: 0;
   text-align: -webkit-center;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  visibility: visible;
 }
 footer {
   background-color: black;
