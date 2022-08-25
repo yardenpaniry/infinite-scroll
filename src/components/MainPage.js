@@ -57,7 +57,7 @@ const MainPage = () => {
   const fetchImages = () => {
     if (searchWords != "") {
 
-      let url = `${urlRoot}/search/photos?query=${searchWords}&page=${pageNumber}&per_page=10&client_id=${accessKey}`
+      let url = `${urlRoot}/search/photos?query=${searchWords}&page=${pageNumber}&per_page=30&client_id=${accessKey}`
 
       fetch(url).then(res => res.json())
         .then(response => {
@@ -84,7 +84,7 @@ const MainPage = () => {
   const onSearchSubmit = (input) => {
 
     if (input !== "") {
-      let url = `${urlRoot}/search/photos?query=${input}&per_page=10&client_id=${accessKey}`
+      let url = `${urlRoot}/search/photos?query=${input}&per_page=30&client_id=${accessKey}`
 
       fetch(url).then(res => res.json())
         .then(data => {
