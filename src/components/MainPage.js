@@ -72,8 +72,6 @@ const MainPage = () => {
         )
     }
     else {
-      let url = `${urlRoot}/photos/random?client_id=${accessKey}&count=10`
-
       axios.get(`${urlRoot}/photos/random?client_id=${accessKey}&count=10`)
         .then(response => setImages([...images, ...response.data]))
     }
