@@ -70,7 +70,7 @@ const MainPage = () => {
         )
     }
     else {
-      let url = `${urlRoot}/photos/random?&client_id=${accessKey}&per_page=30`
+      let url = `${urlRoot}/photos/random?&client_id=${accessKey}&count=30`
 
       fetch(url).then(res => res.json())
       .then(data => {
