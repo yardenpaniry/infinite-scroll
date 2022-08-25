@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 // import "./App.css";
 import SearchPhotos from "./searchPhotos"
 import { Gallery } from "./Gallery"
-import axios from "axios";
 import InfinitScroll from 'react-infinite-scroll-component'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -71,8 +70,13 @@ const MainPage = () => {
         )
     }
     else {
-      axios.get(`${urlRoot}/photos/random?client_id=${accessKey}&count=10`)
-        .then(response => setImages([...images, ...response.data]))
+      let url = `${urlRoot}/photos/random?&client_id=${accessKey}&count=10`
+
+      fetch(url).then(res => res.json())
+      .then(data => {
+          setImages([...images, ...data]);
+      })
+  
     }
   }
 

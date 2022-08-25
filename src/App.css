@@ -1,6 +1,5 @@
 * {
   box-sizing: border-box;
-  background-color: rgb(244, 244, 244);
   color: #333;
   font-size: 10px;
 }
@@ -109,6 +108,8 @@ html {
   -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s;
   visibility: visible;
+  z-index: 1;
+  background-color: white;
 }
 footer {
   /* bottom: 0; */
