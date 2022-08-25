@@ -62,6 +62,9 @@ img.SelectedImg {
     flex-direction: column;
     align-self: center;
   }
+  h5 {
+    font-size: 16px;
+}
 }
 
 .imgView {
