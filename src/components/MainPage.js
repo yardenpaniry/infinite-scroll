@@ -18,16 +18,16 @@ const MainPage = () => {
   const [height, setHeight] = useState(0)
   const ref = useRef(null)
 
-  const [images, setImages] = useState([]);
-  const [searchWords, setSearchWords] = useState("");
-  const [pageNumber, setPageNumber] = useState(1);
+  const [images, setImages] = useState([]);               //save the images that show
+  const [searchWords, setSearchWords] = useState("");     //save the words that the user search
+  const [pageNumber, setPageNumber] = useState(1);        //every scroll need to get the next page
 
   const scroll = Scroll.animateScroll;
 
   const location = useLocation();
   const navigate = useNavigate();
 
-  window.onbeforeunload = (e) => {
+  window.onbeforeunload = (e) => {                        //handle when user refresh the web 
     navigate(location.pathname, {});
   };
 
@@ -35,14 +35,16 @@ const MainPage = () => {
 
   useEffect(() => {
 
-    setHeight(ref.current.clientHeight)
+    setHeight(ref.current.clientHeight)                             //save the height of the header
+
+
     let position = 0;
     if (location.state != undefined || location.state != null) {
       position = location.state.pagePosition
       setImages([...location.state.images])
 
       if (position > 0) {
-        scroll.scrollTo(position);
+        scroll.scrollTo(position);                                  //if user press the back button in details page
 
         position = 0;
       }
@@ -52,7 +54,7 @@ const MainPage = () => {
   }, []);
 
 
-
+  //get the images from the API
   const fetchImages = () => {
     if (searchWords != "") {
 
@@ -73,6 +75,8 @@ const MainPage = () => {
         .then(response => setImages([...images, ...response.data]))
     }
   }
+
+  //handle the search results when the user clicks on the search button
   const onSearchSubmit = (input) => {
 
     if (input !== "") {
@@ -106,11 +110,7 @@ const MainPage = () => {
           <h1 className="title">Photo Search</h1>
           <SearchPhotos userSubmit={onSearchSubmit} />
         </div>
-        <div id="content" style={{
-          marginTop: height
-        }}>
-
-
+        <div id="content" style={{ marginTop: height }}>
           <InfinitScroll
             dataLength={images.length}
             next={fetchImages}

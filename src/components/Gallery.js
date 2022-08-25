@@ -5,15 +5,8 @@ import { useNavigate } from 'react-router-dom';
 export const Gallery = ({ images }) => {
 
   const navigate = useNavigate();
-  // const [pagePosition, setPagePosition] = useState(0);
-
-  const [SelectedImg, setSelectedImg] = useState([]); 
-
 
   const handleClick = (event, image) => {
-
-    setSelectedImg(image);
-    // setPagePosition(window.pageYOffset)
 
     if (image.length !== 0) {
 
