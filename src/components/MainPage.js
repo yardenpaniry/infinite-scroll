@@ -42,8 +42,6 @@ const MainPage = () => {
       setImages([...location.state.images])
 
       if (position > 0) {
-        console.log("positionTo: " + position)
-
         scroll.scrollTo(position);
 
         position = 0;
@@ -57,7 +55,6 @@ const MainPage = () => {
 
   const fetchImages = () => {
     if (searchWords != "") {
-      console.log("searchWords: " + searchWords)
 
       let url = `${urlRoot}/search/photos?query=${searchWords}&page=${pageNumber}&per_page=10&client_id=${accessKey}`
 
@@ -83,7 +80,6 @@ const MainPage = () => {
 
       fetch(url).then(res => res.json())
         .then(data => {
-          console.log("data.total_pages: " + data.total_pages)
 
           if (data.total_pages == 0) {
             toast.error("No images found related to '" + input + "'", {

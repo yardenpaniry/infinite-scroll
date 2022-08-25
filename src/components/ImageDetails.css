@@ -21,10 +21,11 @@ img.SelectedImg {
 }
 
 .details {
-  display: grid;
-  /* justify-content: space-between; */
+  display: flex;
+  justify-content: space-evenly;
   grid-template-columns: 60% 40%;
   width: 80%;
+  align-self: center;
 }
 
 .shareOrDownload {
@@ -80,6 +81,7 @@ h5.description {
 
 .imgView {
   margin: 1%;
+  align-self: center;
 }
 
 img.SelectedImg {

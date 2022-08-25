@@ -113,7 +113,7 @@ html {
 footer {
   /* bottom: 0; */
   /* position: inherit; */
-  background-color: black;
+  background-color: #00000054;
   height: 100px;
   width: 100%;
   position: absolute;
@@ -122,4 +122,5 @@ footer {
   text-align: center;
   padding: 40px;
   font-size: 20px;
+  margin-top: 3%;
 }
