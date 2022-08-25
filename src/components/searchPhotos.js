@@ -5,8 +5,7 @@ export default function SearchPhotos({userSubmit}) {
     const [query, setQuery] = useState("");
 
     const searchPhotos = async (e) => {
-        window.scrollTo(0, 0)
-
+        // window.scrollTo(0, 0)
         e.preventDefault();
         userSubmit(query)
         console.log(query)

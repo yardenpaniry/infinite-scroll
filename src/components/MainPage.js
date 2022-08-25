@@ -84,6 +84,9 @@ const MainPage = () => {
   const onSearchSubmit = (input) => {
 
     if (input !== "") {
+
+      scroll.scrollTo(0); 
+
       let url = `${urlRoot}/search/photos?query=${input}&per_page=30&client_id=${accessKey}`
       if (input == searchWords){
         url = `${urlRoot}/search/photos?query=${input}&per_page=30&client_id=${accessKey}&page=${pageNumber}`
