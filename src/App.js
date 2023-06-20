@@ -1,29 +1,23 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import ImageDetails from './components/ImageDetails'
-import MainPage from './components/MainPage'
-import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import ImageDetails from "./components/ImageDetails";
+import MainPage from "./components/MainPage";
+import React from "react";
+import "./App.css";
+import { Header } from "./components/Header";
 
-
-const App = () =>{
-  
+const App = () => {
   return (
     <Router>
       <div className="App">
+        <Header></Header>
+
         <Routes>
-          <Route exact path="/imageDetails/id=:id" element={<ImageDetails/>}/>
-          <Route  path="/infinite-scroll" element={<MainPage/>}/>
+          <Route exact path="/imageDetails/id=:id" element={<ImageDetails />} />
+          <Route path="/infinite-scroll" element={<MainPage />} />
         </Routes>
       </div>
-      <footer>
-
-      ©️ Yarden paniry
-      </footer>
-
     </Router>
-
   );
-  
-}
+};
 
 export default App;
