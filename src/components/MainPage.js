@@ -12,7 +12,7 @@ import { useRef } from "react";
 // import {fetchImages} from '../Api'
 import * as Scroll from "react-scroll";
 
-const MainPage = () => {
+const MainPage = (props) => {
   const urlRoot = "https://api.unsplash.com";
   const accessKey = process.env.REACT_APP_ACCESSKEY;
 
@@ -34,8 +34,12 @@ const MainPage = () => {
   };
 
   useEffect(() => {
-    setHeight(ref.current.clientHeight); //save the height of the header
+    // console.log("REF: ", ref);
+    setHeight(ref.current.clientHeight + props.heightHeader); //save the height of the header
+    console.log("REF: ", props.heightHeader);
+  }, [props.heightHeader]);
 
+  useEffect(() => {
     let position = 0;
     if (location.state != undefined || location.state != null) {
       position = location.state.pagePosition;
@@ -111,7 +115,7 @@ const MainPage = () => {
           {/* <h1 className="title">Photo Search</h1> */}
           <SearchPhotos userSubmit={onSearchSubmit} />
         </div>
-        <div id="content" style={{ marginTop: height + 20 }}>
+        <div id="content" style={{ marginTop: height }}>
           <InfinitScroll
             dataLength={images.length}
             next={fetchImages}
